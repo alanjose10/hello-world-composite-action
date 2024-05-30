@@ -24,15 +24,15 @@ runs:
 
     - name: Set github path
       run: |
-        echo $GITHUB_ACTION_PATH
-        echo $GITHUB_PATH
+        echo ::warning::$GITHUB_ACTION_PATH
         echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
-        echo ::debug::$GITHUB_PATH
       shell: bash
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
-
+    - run: |
+        echo ::warning::$PATH
+      shell: bash
     
     - name: Run goodbye.sh
       run: goodbye.sh
